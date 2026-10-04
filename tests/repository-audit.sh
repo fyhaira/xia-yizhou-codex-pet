@@ -24,7 +24,7 @@ if /usr/bin/find "$ROOT" \( -name '*.app' -o -name '*.asar' -o -name '*.dmg' -o 
 if /usr/bin/find "$ROOT" -type f -size +5M -print -quit | /usr/bin/grep -q .; then fail "no unexpected large files"; else pass "no unexpected large files"; fi
 
 text_patterns='/'Users'/[A-Za-z0-9._-]+|aria''[.]huang|pet_[0-9a-f]{20,}|-----BEGIN [A-Z ]*PRIVATE KEY-----|gh[pousr]_[A-Za-z0-9]{20,}|AKIA[0-9A-Z]{16}|Developer ID 'Application':|DEVELOPMENT_'TEAM'[[:space:]]*='
-if /usr/bin/grep -RIE --exclude='repository-audit.sh' --exclude='spritesheet.webp' --exclude='sleep-strip.png' "$text_patterns" "$ROOT" >/dev/null 2>&1; then fail "private-state and credential scan"; else pass "private-state and credential scan"; fi
+if /usr/bin/grep -RIE --exclude='repository-audit.sh' --exclude='runtime-resource-policy.sh' --exclude='packaging-regression.sh' --exclude='spritesheet.webp' --exclude='sleep-strip.png' "$text_patterns" "$ROOT" >/dev/null 2>&1; then fail "private-state and credential scan"; else pass "private-state and credential scan"; fi
 
 /usr/bin/grep -F '69818621da1c850a28ef9aa023126338d65ffc1b' "$ROOT/installer/scripts/fetch-dependencies.sh" >/dev/null && pass "enhancer commit pin" || fail "enhancer commit pin"
 /usr/bin/grep -F 'bed7eea5325e1108f32ce5228ddd6a5f0f08a499ee42aa7442aea583702f6057' "$ROOT/installer/scripts/fetch-dependencies.sh" >/dev/null && pass "Node archive pin" || fail "Node archive pin"

@@ -4,6 +4,7 @@ set -euo pipefail
 SCRIPT_DIR=${0:A:h}
 INSTALLER_ROOT=${SCRIPT_DIR:h}
 REPO_ROOT=${INSTALLER_ROOT:h}
+. "$SCRIPT_DIR/runtime-resource-policy.sh"
 INPUT_ROOT="$REPO_ROOT/.build-inputs"
 OUTPUT_ROOT=${OUTPUT_ROOT_OVERRIDE:-"$INSTALLER_ROOT/.generated-resources"}
 TOOLKIT_ROOT="$INPUT_ROOT/enhancer"
@@ -66,6 +67,15 @@ mkdir -p "$STAGE/toolkit/fixtures/xia-yizhou"
 /usr/bin/ditto --norsrc --noqtn "$TEMPLATE_ROOT/metadata/node-provenance.json" "$STAGE/metadata/node-provenance.json"
 /usr/bin/ditto --norsrc --noqtn "$REPO_ROOT/THIRD-PARTY-NOTICES.txt" "$STAGE/THIRD-PARTY-NOTICES.txt"
 
+PNPM_STORE_DIR=$("$NODE_DIST/bin/node" -e "const fs=require('fs');const p=process.argv[1];process.stdout.write(JSON.parse(fs.readFileSync(p,'utf8')).storeDir || '')" "$STAGE/toolkit/node_modules/.modules.yaml")
+
+# pnpm's command shims and install-state files are not used by Node module
+# resolution at runtime. The shim and modules record contain build/store paths;
+# the workspace-state record contains a mutable validation timestamp.
+remove_non_runtime_pnpm_artifacts "$STAGE/toolkit/node_modules"
+verify_no_non_runtime_pnpm_artifacts "$STAGE/toolkit/node_modules"
+verify_no_machine_local_paths "$STAGE" "$REPO_ROOT" "${HOME:-}" "$PNPM_STORE_DIR"
+
 TOOLKIT_TREE_SHA256=$(cd "$STAGE/toolkit" && /usr/bin/find . -type f -print0 | /usr/bin/sort -z | /usr/bin/xargs -0 /usr/bin/shasum -a 256 | /usr/bin/shasum -a 256 | /usr/bin/awk '{print $1}')
 TOOLKIT_FILE_MANIFEST="$STAGE/metadata/toolkit-files.sha256"
 (cd "$STAGE/toolkit" && /usr/bin/find . -type f -print0 | /usr/bin/sort -z | /usr/bin/xargs -0 /usr/bin/shasum -a 256) > "$TOOLKIT_FILE_MANIFEST"
@@ -94,6 +104,9 @@ ASAR_PACKAGE_INTEGRITY=$(/usr/bin/awk '/@electron\/asar@4[.]1[.]0/{found=1;next}
   -e "s/@PET_ID@/xia-yizhou/g" \
   -e "s/@SPRITESHEET_FILENAME@/spritesheet.webp/g" \
   "$TEMPLATE_ROOT/metadata/pin.template.json" > "$STAGE/metadata/pin.json"
+
+verify_toolkit_file_manifest "$STAGE/toolkit" "$TOOLKIT_FILE_MANIFEST"
+verify_no_machine_local_paths "$STAGE" "$REPO_ROOT" "${HOME:-}" "$PNPM_STORE_DIR"
 
 [[ ! -e "$OUTPUT_ROOT" ]] || /bin/mv "$OUTPUT_ROOT" "$INSTALLER_ROOT/.resources-old.$$.tmp"
 /bin/mv "$STAGE" "$OUTPUT_ROOT"
