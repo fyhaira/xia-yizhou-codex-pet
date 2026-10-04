@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "minimumInstallerSchemaVersion": 3,
+  "payloadVersion": "1.1",
+  "petID": "xia-yizhou",
+  "capabilityKey": "xia-yizhou",
+  "displayNameEnglish": "Xia Yizhou Codex Pet",
+  "displayNameChinese": "夏以昼 Codex 桌宠",
+  "spritesheetFilename": "spritesheet.webp",
+  "toolkitConfigFilename": "xia-yizhou.production.json",
+  "supportDirectoryName": "Xia Yizhou Codex Pet",
+  "runtimeAppName": "Xia Yizhou Codex Pet Runtime.app",
+  "productionSleepMS": 180000
+}

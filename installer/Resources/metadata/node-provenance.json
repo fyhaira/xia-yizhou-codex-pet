@@ -1,0 +1,15 @@
+{
+  "component": "node",
+  "version": "24.21.0",
+  "platform": "darwin-arm64",
+  "sourceURL": "https://nodejs.org/download/release/v24.21.0/node-v24.21.0-darwin-arm64.tar.gz",
+  "archiveFilename": "node-v24.21.0-darwin-arm64.tar.gz",
+  "archiveSHA256": "bed7eea5325e1108f32ce5228ddd6a5f0f08a499ee42aa7442aea583702f6057",
+  "executableSHA256": "e4b5a3af0e05c75de2eae013904145f40fe7fc2a6e6f17510128bf45cca4e79b",
+  "executableSize": 122129232,
+  "verifiedAgainst": "https://nodejs.org/download/release/v24.21.0/SHASUMS256.txt",
+  "checksumFileSHA256": "f410428039e2c922a14058df067a4482691c9304a5c01a75847f9f3f2d3307f6",
+  "checksumSignatureVerification": "not-performed-no-local-openpgp-tool-or-trusted-keyring",
+  "license": "MIT",
+  "extraction": "tar -xOf archive node-v24.21.0-darwin-arm64/bin/node"
+}

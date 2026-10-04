@@ -1,0 +1,31 @@
+{
+  "formatVersion": 1,
+  "features": {
+    "pointerGaze": {
+      "enabled": true,
+      "hoverPriority": "gaze",
+      "enterRadiusPx": 220,
+      "exitHysteresisPx": 40,
+      "sectorHysteresisDegrees": 4
+    },
+    "durableStates": {
+      "enabled": true,
+      "states": ["running", "review"]
+    },
+    "sleep": {"enabled": true}
+  },
+  "petCapabilities": {
+    "xia-yizhou": {
+      "sleep": {
+        "enabled": true,
+        "inactivityMs": 180000,
+        "assetPath": "../fixtures/xia-yizhou/sleep-strip.png",
+        "frameWidth": 192,
+        "frameHeight": 208,
+        "frameCount": 8,
+        "frameDurationMs": 420,
+        "loop": true
+      }
+    }
+  }
+}

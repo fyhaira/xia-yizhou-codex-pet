@@ -1,0 +1,20 @@
+{
+  "formatVersion": 2,
+  "toolkitCommit": "@TOOLKIT_COMMIT@",
+  "toolkitGitTree": "@TOOLKIT_GIT_TREE@",
+  "toolkitTreeSHA256": "@TOOLKIT_TREE_SHA256@",
+  "toolkitFileManifestSHA256": "@TOOLKIT_FILE_MANIFEST_SHA256@",
+  "asarPackageVersion": "@ASAR_PACKAGE_VERSION@",
+  "asarPackageIntegrity": "@ASAR_PACKAGE_INTEGRITY@",
+  "bundledNodeVersion": "@NODE_VERSION@",
+  "bundledNodeUpstreamSHA256": "@NODE_UPSTREAM_SHA256@",
+  "bundledNodeSHA256": "@NODE_SHA256@",
+  "nodeProvenanceManifestSHA256": "@NODE_PROVENANCE_SHA256@",
+  "thirdPartyNoticesSHA256": "@THIRD_PARTY_NOTICES_SHA256@",
+  "supportedBuilds": ["8881", "9922", "10789", "11431"],
+  "payloadFiles": {
+    "pet/@PET_ID@/pet.json": "@PET_JSON_SHA256@",
+    "pet/@PET_ID@/@SPRITESHEET_FILENAME@": "@SPRITESHEET_SHA256@",
+    "capabilities/@PET_ID@/sleep-strip.png": "@SLEEP_SHA256@"
+  }
+}

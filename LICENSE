@@ -1,0 +1,39 @@
+Xia Yizhou Codex Pet Personal Use License 1.0
+
+Copyright (c) 2026 Aria Huang. All rights reserved except for the limited permissions granted below.
+
+1. Scope
+
+This license applies only to the installer source code, documentation, and other original project material for which the copyright owner has the necessary rights (the "Software"). It does not apply to the Xia Yizhou pet artwork in `package/`, the Codex Pet Interaction Enhancer, Node.js, npm packages, Codex, ChatGPT, Love and Deepspace, or other third-party material.
+
+2. Personal-use permission
+
+An individual may view and inspect the source, download the Software, install and run it on devices they personally use, and make private backups. These permissions are limited to personal, non-commercial use.
+
+3. Private modification
+
+An individual may privately modify the Software solely for personal, non-commercial use. Modified copies must remain private and may not be published or distributed.
+
+4. Prohibited uses
+
+Without separate written permission from the copyright owner, the Software may not be sold, monetized, commercially exploited, redistributed, mirrored, re-hosted, repackaged, sublicensed, bundled into another distributed project, or used as the basis of a commercial product or service. Modified versions, forks, binaries, and installers may not be published or distributed.
+
+5. Notices and trademarks
+
+Copyright, license, and third-party notices must be preserved in private copies. This license grants no trademark rights.
+
+6. Third-party material
+
+Third-party software and assets remain under their own terms. This license grants no rights to third-party software, characters, artwork, games, or trademarks. See `ASSET-TERMS.md`, `DISCLAIMER.md`, and `THIRD-PARTY-NOTICES.txt`.
+
+7. Termination
+
+The permissions granted by this license terminate automatically upon material breach. After termination, the person in breach must stop using and delete copies made under this license, except where applicable law requires otherwise.
+
+8. Warranty and liability
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE, OR NON-INFRINGEMENT. TO THE MAXIMUM EXTENT PERMITTED BY LAW, THE COPYRIGHT OWNER WILL NOT BE LIABLE FOR CLAIMS, LOSSES, DAMAGES, OR OTHER LIABILITY ARISING FROM THE SOFTWARE OR ITS USE.
+
+9. Other permissions
+
+Any use not expressly permitted by this license requires separate written permission from the copyright owner.
